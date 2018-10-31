@@ -1,11 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
     <head>
         <title>{{title}}</title>
+        
     </head>
 <body>
-<nav><a href="/newpost">New Post</a></nav>
-<nav><a href="/">blog</a></nav>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">All Posts</a></li>
+            <li><a href="/newpost">New Post</a></li>            
+            <li><a href="/login">LogIn</a></li>
+            <li><a href="/logout">Log Out</a></li>
+        </ul>        
+    </nav>
+
+    {% with messages = get_flashed_messages() %}
+        <ul>
+        {% for message in messages %}
+            <h1>{{message}}</h1>
+        {% endfor %}
+        </ul>
+    {% endwith %}
+
     {% block content %}
     {% endblock %}
 
